@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="pass" type="password" placeholder="Your password"></ion-input>
+    </ion-item>
+
+    <button ion-button block type="submit" [disabled]="!registerForm.valid">
+      Register
+    </button>
+  </form>
+
+  <button ion-button block clear (click)="goToLogin()">
+    Login
+  </button>
+</ion-content>

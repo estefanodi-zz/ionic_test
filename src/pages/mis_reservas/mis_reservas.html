@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Mis Reservas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="main-container">
+	<ion-row class="table-header">
+		<ion-col class="square">Nombre</ion-col>
+		<ion-col class="square">Email</ion-col>
+		<ion-col class="square">Telefono</ion-col>
+		<ion-col class="square">Fecha</ion-col>
+	    <ion-col class="square">Hora</ion-col>
+	    <ion-col class="square">Comensales</ion-col>
+	    <ion-col class="square">Confirmado</ion-col>
+	    <ion-col class="square"></ion-col>
+	    <ion-col class="square"></ion-col>
+	</ion-row>
+
+     
+	<ion-row class="lis" *ngFor='let reserva of reservas | async'>
+	    <ion-col class="square lis">{{ reserva.nombre  }}</ion-col>
+		<ion-col class="square lis">{{ reserva.email  }}</ion-col>
+		<ion-col class="square lis">{{ reserva.telefono  }}</ion-col>
+	    <ion-col class="square lis">{{ reserva.fecha  }}</ion-col>
+	    <ion-col class="square lis">{{ reserva.hora  }}</ion-col>
+	    <ion-col class="square lis">{{ reserva.comensales  }}</ion-col>
+	    <ion-col class="square lis">{{ reserva.approved  }}</ion-col>
+	    <ion-col class="square lis">
+	    	<button ion-button color="red" (click)="remove( reserva )">
+	          Cancela
+	        </button>
+	    </ion-col>
+	    <ion-col class="square lis">
+	    	<button ion-button color="red" (click)="openModal( reserva )">
+	          Modifica
+	        </button>
+	    </ion-col>
+	</ion-row>
+</ion-content>

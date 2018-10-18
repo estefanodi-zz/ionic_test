@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+    <ion-title hide-back-button="true">Reserva</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        LOGOUT 
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <form [formGroup]="myForm" (ngSubmit)="addItem()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Numero de comensales:</ion-label>
+        <ion-input formControlName="comensales" type="number" placeholder="Numero de comensales"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Telefono:</ion-label>
+        <ion-input formControlName="telefono" type="tel" placeholder="Telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Correo electronico:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Fecha:</ion-label>
+        <ion-datetime formControlName="fecha" displayFormat="DD-MM-YYYY" placeholder="DD-MM-YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Hora:</ion-label>
+        <ion-datetime formControlName="hora" displayFormat="HH-mm" placeholder="HH-mm"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+  </form>
+
+  <button ion-button block clear (click)="goToMisReservas()">
+    Mis Reservas
+  </button>
+</ion-content>
